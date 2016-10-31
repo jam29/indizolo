@@ -1,0 +1,32 @@
+
+<html lang="fr">
+  <head>
+  	 <script src="https://cdn.jsdelivr.net/riot/2.6/riot+compiler.min.js"></script>
+    <page_head></page_head>
+  </head>
+  <body>
+  	<page_navbar></page_navbar>
+    <div id="content"></div>  
+    <page_footer></page_footer>
+  </body>
+
+ <script type="riot/tag" src="page_head.tag"></script>  
+ <script type="riot/tag" src="page_navbar.tag"></script>  	 
+ <script type="riot/tag" src="page_content.tag"></script>
+ <script type="riot/tag" src="page_test.tag"></script>
+ <script type="riot/tag" src="page_footer.tag"></script>
+ <script>
+ riot.compile(function() { // compilation nécessaire pour obtenir le tableau des tags (contenu) , ici uniquement pour le content.
+	riot.mount("page_head");
+	riot.mount("page_navbar");
+  var contenu = riot.mount('div#content','page_content')[0];  
+  riot.route.start();
+  riot.route("/qui",function(){ 
+                                    if (contenu) { contenu.unmount(true) ;}
+                                    contenu = riot.mount("div#content","page_test")
+                                  })
+  })
+
+</script>
+
+</html>
