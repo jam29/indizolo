@@ -20,19 +20,19 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <img class="slide-image"  id="images/800x300.png" src="" alt="">
+                                    <img class="slide-image"   src="images/800x300.png" alt="">
                                     <h5 class="caption">WORKING CLASS ZER0 - SORTIE VINYL - 5 MAI 2016</h5>
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" id="images/800x300-1.png" src="" alt="">
+                                    <img class="slide-image"  src="images/800x300-1.png" alt="">
                                     <h5 class="caption">BAND OF BITCHES - TELECHARGEZ LEUR DEMO 3 TITRES</h5>
                                 </div>
                                 <div class="item">
-                                    <img class="slide-image" id="images/800x300-2.jpg" src="" alt="">
+                                    <img class="slide-image"  src="images/800x300-2.jpg" alt="">
                                     <h5 class="caption">KLIMT - PROMO CD 5€</h5>
                                 </div>
                                  <div class="item">
-                                    <img class="slide-image" id="images/800x300-2.jpg" src="" alt="">
+                                    <img class="slide-image"  src="images/800x300-2.jpg" alt="">
                                     <h5 class="caption">KLIMT2 - PROMO CD 5€</h5>
                                 </div>
                             </div>
