@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/riot/2.3/riot+compiler.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Bootstrap Carousel with Riot</title>
+</head>
+<body>
+
+<bootstrap-carousel></bootstrap-carousel>
+  
+<script>
+  $(function(){
+    riot.compile($('#riot-tags').val());
+    riot.mount('*');
+  });
+</script>
+  
+<textarea id="riot-tags" cols="120" rows="40">
+<bootstrap-carousel>
+
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel"
+    data-interval={ this.interval } data-pause={ this.pause }
+    data-wrap={ this.wrap } data-keyboard={ this.keyboard }>
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+          <li each={ this.items } data-target="#carousel-example-generic" data-slide-to={ this.id } class={ active: this.id==0 }></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+          <div each={ this.items } class={ item: true, active: this.id==0 }>
+              <img src={ src } alt={ caption }>
+              <div class="carousel-caption">
+                  <h2>{ caption }</h2>
+              </div>
+          </div>
+      </div>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+          <span class="fa fa-angle-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+          <span class="fa fa-angle-right"></span>
+      </a>
+  </div>
+  
+  <style scoped>
+    .carousel-inner > .item {
+      text-align: center;
+    }
+    .carousel-inner > .item > img {
+      display: inline;
+    }
+    .carousel-inner .carousel-caption h2 {
+      color: rgba(0,0,0,0.6);
+      font-size: 40px;
+      text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.6),
+                   0px 0px 10px rgba(255, 255, 255, 0.6);
+    }
+    .carousel-indicators li {
+      background-color: rgba(0,0,0,0.4);
+      box-shadow: 0 0 5px rgba(0,0,0,0.6);
+      border-color: rgba(255,255,255,0.8);
+      margin-left: 6px;
+      margin-right: 6px;
+    }
+    .carousel-indicators li.active {
+      border-color: rgba(255,255,255,0.8);
+      background-color: rgba(255,255,255,0.8);
+      margin-left: 6px;
+      margin-right: 6px;
+    }
+    img {
+      opacity: 0.8;
+    }
+  </style>
+
+  <script>
+   this.items = [
+      { "id":0 , "src" : "http://placehold.it/800x400"   , "caption" : "Caption #1" } ,
+      { "id":1 , "src" : "http://placehold.it/800x400" , "caption" : "Caption #2" }
+   ]
+   this.interval = 3000 ;
+   this.pause = "hover" ;
+   this.wrap = true ;
+   this.keyboard = true ;   
+  </script>
+
+</bootstrap-carousel>
+</textarea>
+
+</body>
+</html>

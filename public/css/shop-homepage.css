@@ -11,10 +11,13 @@ body {
 
 .slide-image {
     width: 100%;
+
 }
 
 .carousel-holder {
     margin-bottom: 30px;
+    height:500px;
+    z-index:99999;
 }
 
 .carousel-control,

@@ -1,5 +1,5 @@
-<page_test>
+<page_qui>
 <div>
 this is page_test
 </div>
-</page_test>
+</page_qui>

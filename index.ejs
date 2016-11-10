@@ -1,5 +1,4 @@
 
-<html lang="fr">
   
   <head>
   	
@@ -11,8 +10,11 @@
 
     <title>INDIZOLO.COM (C)</title>
     <!-- Bootstrap Core CSS -->
+    
+    <!--link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" /-->
 
     <link href="css/bootstrap.css" type="text/css" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="css/shop-homepage.css" type="text/css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -31,26 +33,45 @@
   </body>
 
 
- <script src="https://cdn.jsdelivr.net/riot/2.6/riot+compiler.min.js"></script>
- <script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
- <script src="js/bootstrap.min.js"></script>
+ <!--script src="https://cdn.jsdelivr.net/riot/2.6/riot+compiler.min.js"></script>
+ <script src="js/jquery.js"></script>
+ <script src="js/bootstrap.js"></script-->
 
- <script type="riot/tag" src="page_navbar.tag"></script>  	 
- <script type="riot/tag" src="page_content.tag"></script>
- <script type="riot/tag" src="page_test.tag"></script>
- <script type="riot/tag" src="page_footer.tag"></script>
- <script>
- riot.compile(function() { // compilation nécessaire pour obtenir le tableau des tags (contenu) , ici uniquement pour le content.
-	
-	riot.mount("page_navbar");
-  var contenu = riot.mount('div#content','page_content')[0];  
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/riot/2.3/riot+compiler.js"></script>
+
+<script type="riot/tag" src="page_navbar.tag">        </script>
+<script type="riot/tag" src="annonces.tag"> </script>  
+<script type="riot/tag" src="bootstrap-carousel.tag"> </script>  	 
+<script type="riot/tag" src="page_content.tag">       </script>
+<script type="riot/tag" src="page_qui.tag">           </script>
+<script type="riot/tag" src="page_footer.tag">        </script>
+ 
+<script>
+  
+  riot.compile(function() { // compilation nécessaire pour obtenir le tableau des tags (contenu) , ici uniquement pour le content.	
+  riot.mount("page_navbar");
+  
+  // var contenu = riot.mount('div#content','page_content')[0];  
+
+  var contenu = riot.mount("div#content","page_content")
+
   riot.route.start();
-  riot.route("/qui",function(){ 
-                                    if (contenu) { contenu.unmount(true) ;}
-                                    contenu = riot.mount("div#content","page_test")
-                                  })
+
+  riot.route("/",function() {
+          console.log("route->home");
+          contenu = riot.mount("div#content","page_content")
+          $('.carousel').carousel({
+              interval: 3000
+          })
   })
 
+  riot.route("/qui",function(){ 
+          console.log("route->qui");     
+          contenu = riot.mount("div#content","page_qui")
+          })
+}) // compile
 </script>
 
 </html>
