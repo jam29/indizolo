@@ -13,8 +13,10 @@
 
   <script>
    this.items = [
-      {"id":0 , "titre":"WEST FEST" , "nom":"images/west.png" , "abstract":"zefefrerferfefrer"} ,
-      {"id":1 , "titre":"PUNDFGDFG" , "nom":"images/punk.png" , "abstract":"sffrfe"}
+      {"id":0 , "titre":"WEST FEST" , "nom":"images/west.png"   , "abstract":"WEST FEST"} ,
+      {"id":1 , "titre":"PUNDFGDFG" , "nom":"images/punk.png"   , "abstract":"PUNK FEST"},
+      {"id":2 , "titre":"PUNDFGDFG" , "nom":"images/carnet.png" , "abstract":"Carnets de Voyages"},
+
    ] 
   </script>
 

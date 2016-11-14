@@ -4,12 +4,12 @@
     data-wrap={ this.wrap } data-keyboard={ this.keyboard }>
       <!-- Indicators -->
       <ol class="carousel-indicators">
-          <li each={ this.items } data-target="#carousel-example-generic" data-slide-to={ this.id } class={ active: this.id==0 }></li>
+          <li each={ this.items } data-target="#carousel-example-generic" data-slide-to={ this.id } class="{ active: this.id==0 }"></li>
       </ol>
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
-          <div each={ this.items } class={ item: true, active: this.id==0 }>
+          <div each={ this.items } class="{ item: true, active: this.id==0 }">
               <img src={ nom } alt={ caption }>
               <div class="carousel-caption">
                   <h2>{ caption }</h2>
@@ -30,7 +30,8 @@
    
    this.items = [
       {"id":0 , "nom":"images/800x300.png"   , "caption" : "Caption #1"} ,
-      {"id":1 , "nom":"images/800x300-2.jpg" , "caption" : "Caption #2"}
+      {"id":1 , "nom":"images/800x300-2.jpg" , "caption" : "Caption #2"} ,
+        {"id":2 , "nom":"images/800x300-2.jpg" , "caption" : "Caption #3"}
    ]
    
    this.interval = 3000 ;

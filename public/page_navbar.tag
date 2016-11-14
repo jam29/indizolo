@@ -22,10 +22,10 @@
                         <a href="#">Artistes</a>
                     </li>
                     <li>
-                        <a href="#"><span class="glyphicon glyphicon-search"></span></a>
+                        <a href="#"><span class="glyphicon glyphicon-search"></span>&nbsp;</a>
                     </li>
                      <li>
-                        <a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                        <a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;</a>
                     </li>
                 </ul>
             </div>

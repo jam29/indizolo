@@ -49,29 +49,31 @@
 <script type="riot/tag" src="page_footer.tag">        </script>
  
 <script>
-  
+  $( document ).ready(function() {
   riot.compile(function() { // compilation nécessaire pour obtenir le tableau des tags (contenu) , ici uniquement pour le content.	
-  riot.mount("page_navbar");
+    riot.mount("page_navbar");
   
-  // var contenu = riot.mount('div#content','page_content')[0];  
+    // var contenu = riot.mount('div#content','page_content')[0];  
 
-  var contenu = riot.mount("div#content","page_content")
+    var contenu = riot.mount("div#content","page_content")
 
-  riot.route.start();
+    riot.route.start();
 
-  riot.route("/",function() {
+    riot.route("/",function() {
           console.log("route->home");
           contenu = riot.mount("div#content","page_content")
           $('.carousel').carousel({
               interval: 3000
           })
-  })
+    })
 
-  riot.route("/qui",function(){ 
+    riot.route("/qui",function(){ 
           console.log("route->qui");     
           contenu = riot.mount("div#content","page_qui")
           })
-}) // compile
+    }) // compile
+
+}) // ready
 </script>
 
 </html>
