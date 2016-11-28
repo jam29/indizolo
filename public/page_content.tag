@@ -1,23 +1,28 @@
 <page_content>  
-  <!--page-navbar></page-navbar-->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+
+<div class="container-fluid">
+    
+    <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
                 <div class="carousel-holder">
                     <bootstrap-carousel></bootstrap-carousel>
                 </div>
             </div>
-        </div>
+            <div class="col-sm-2"></div>
+    </div>
 
-        <div class="row">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
             <annonces></annonces> 
         </div>
+        <div class="col-sm-2"></div>
     </div>
-<!-- /.container -->
 
 <script>
- riot.mount("bootstrap-carousel");
- riot.mount("annonces")
+    riot.mount("bootstrap-carousel");
+    riot.mount("annonces")
 </script>
   
 </page_content>

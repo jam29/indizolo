@@ -4,15 +4,15 @@
     data-wrap={ this.wrap } data-keyboard={ this.keyboard }>
       <!-- Indicators -->
       <ol class="carousel-indicators">
-          <li each={ this.items } data-target="#carousel-example-generic" data-slide-to={ this.id } class="{ active: this.id==0 }"></li>
+          <li each={ item , index in items } data-target="#carousel-example-generic" data-slide-to={ index } class="{ active: index==0 }"></li>
       </ol>
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
-          <div each={ this.items } class="{ item: true, active: this.id==0 }">
-              <img src={ nom } alt={ caption }>
+          <div each={ item , index in items } class="{ item: true, active: index==0 }">
+              <img src=images/{ item.image } alt={ item.image }>
               <div class="carousel-caption">
-                  <h2>{ caption }</h2>
+                  <h2><a href="#groupe/{ item.url }">{ item.title }</a></h2>
               </div>
           </div>
       </div>
@@ -27,19 +27,38 @@
   </div>
 
   <script>
-   
-   this.items = [
-      {"id":0 , "nom":"images/800x300.png"   , "caption" : "Caption #1"} ,
-      {"id":1 , "nom":"images/800x300-2.jpg" , "caption" : "Caption #2"} ,
-        {"id":2 , "nom":"images/800x300-2.jpg" , "caption" : "Caption #3"}
-   ]
-   
-   this.interval = 3000 ;
-   this.pause = "hover" ;
-   this.wrap = true     ;
-   this.keyboard = true ; 
 
-   
+    /*
+
+     this.items = [
+      {"_id":"57dac9318caa76bdb10d4ea7","image":"800x300.png"   , "title":"Working Fuck Zero" ,   "url":"wczo"},
+      {"_id":"57dac9398caa76bdb10d4ea8","image":"800x300-1.png" , "title":"bitches"           ,   "url":"wcz"},
+      {"_id":"57dac9418caa76bdb10d4ea9","image":"800x300-2.png" , "title":"bitKLIMTches",         "url":"wcz"}
+    ]
+
+    */
+
+    var that = this ;
+
+    this.on("before-mount", function() { 
+      
+      var promise = $.getJSON("http://localhost:8080/carousel/get") 
+
+      promise.done(function(data) {
+         console.log("data carousel ->",data)
+         that.items = data;
+      });
+
+      promise.fail(function(err) {
+              $('body').append('<p>Oh no, something went wrong!</p>', err);
+      });
+
+      this.interval = 3000 ;
+      this.pause = "hover" ;
+      this.wrap = true     ;
+      this.keyboard = true ; 
+    
+    });
 
   </script>
 

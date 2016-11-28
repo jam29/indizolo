@@ -42,22 +42,22 @@
 <script src="https://cdn.jsdelivr.net/riot/2.3/riot+compiler.js"></script>
 
 <script type="riot/tag" src="page_navbar.tag">        </script>
-<script type="riot/tag" src="annonces.tag"> </script>  
+<script type="riot/tag" src="annonces.tag">           </script>  
 <script type="riot/tag" src="bootstrap-carousel.tag"> </script>  	 
 <script type="riot/tag" src="page_content.tag">       </script>
+<script type="riot/tag" src="page_groupe.tag">        </script>
 <script type="riot/tag" src="page_qui.tag">           </script>
 <script type="riot/tag" src="page_footer.tag">        </script>
  
 <script>
   $( document ).ready(function() {
   riot.compile(function() { // compilation nécessaire pour obtenir le tableau des tags (contenu) , ici uniquement pour le content.	
-    riot.mount("page_navbar");
+    riot.mount("*"); 
+    //riot.mount("page_footer"); 
   
     // var contenu = riot.mount('div#content','page_content')[0];  
 
     var contenu = riot.mount("div#content","page_content")
-
-    riot.route.start();
 
     riot.route("/",function() {
           console.log("route->home");
@@ -73,7 +73,14 @@
           })
     }) // compile
 
+    riot.route("/groupe/*",function(name){
+          console.log("route->groupe",name);
+          contenu = riot.mount("div#content","page_groupe",{ "_id" : name })
+
+    })
+
+     riot.route.start(true);
+
 }) // ready
 </script>
-
 </html>
