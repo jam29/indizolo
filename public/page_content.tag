@@ -1,6 +1,6 @@
 <page_content>  
 
-<div class="container-fluid">
+<!--div class="container-fluid"-->
     
     <div class="row">
             <div class="col-sm-2"></div>
@@ -20,9 +20,17 @@
         <div class="col-sm-2"></div>
     </div>
 
+    <div id="search" >
+      <button type="button" class="close" >×</button>
+        <form>
+          <input type="search" value="" placeholder="tapez un mot clé ici s.v.p." />
+          <button type="submit" class="btn btn-primary">Recherche</button>
+        </form>
+      </div>
+
 <script>
     riot.mount("bootstrap-carousel");
-    riot.mount("annonces")
+    riot.mount("annonces");
 </script>
   
 </page_content>

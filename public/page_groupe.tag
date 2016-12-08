@@ -9,19 +9,18 @@
           <h2 class="featurette-heading">{ this.band.name }</h2>
               
           <p>{ this.band.abstract }</p>
-          <p>
-            Membres : 
+          <p class="lead">Membres :</p>
+          <p> 
             <span each={ member in this.band.members} > { member.name }
                                                   &nbsp;{ member.instrument} / </span>
           </p>
-          <p class="lead">
-          <a href="{ this.band.google }">{ this.band.google }</a>
-          </p>
+          <p class="lead"><a href="{ this.band.google }">{ this.band.google }</a></p>
+          <p class="lead">Contact: { this.band.contact }</p>
 
         </div>
 
         <div class="col-md-5" style="border: 0px solid red;">
-          <img class="featurette-image img-responsive center-block" src="images/thierr.jpg" >
+          <img class="featurette-image img-responsive center-block" src="{ this.band.cover }" >
         </div>
       </div>
 
@@ -32,7 +31,7 @@
 
         <div class="col-md-5" > 
           <div>
-            <img src=images/{ album.cover } class="img-responsive" style="padding:20px"/>
+            <img src={ album.cover } class="img-responsive" style="padding:20px"/>
           </div>
         </div>
           <div class="col-md-5" style="border: 0px solid red; padding:20px">    
@@ -54,13 +53,13 @@
       </div>
       
       <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-sm-8">
+        <div class="col-md-3"></div>
+        <div class="col-sm-6">
           <div class="embed-responsive embed-responsive-16by9">
-          <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/RDcixURK0H0"></iframe>
+          <iframe class="embed-responsive-item" src="{ this.band.video }"></iframe>
             <!--iframe class="embed-responsive-item" src="{ this.band.video }" ></iframe-->
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-3"></div>
       </div>
       </div>
 

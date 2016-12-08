@@ -4,13 +4,13 @@
     data-wrap={ this.wrap } data-keyboard={ this.keyboard }>
       <!-- Indicators -->
       <ol class="carousel-indicators">
-          <li each={ item , index in items } data-target="#carousel-example-generic" data-slide-to={ index } class="{ active: index==0 }"></li>
+          <li each={ item , index in this.items } data-target="#carousel-example-generic" data-slide-to={ index } class="{ active: index==0 }"></li>
       </ol>
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
-          <div each={ item , index in items } class="{ item: true, active: index==0 }">
-              <img src=images/{ item.image } alt={ item.image }>
+          <div each={ item , index in this.items } class="{ item: true, active: index==0 }">
+              <img src={ item.image } >
               <div class="carousel-caption">
                   <h2><a href="#groupe/{ item.url }">{ item.title }</a></h2>
               </div>
