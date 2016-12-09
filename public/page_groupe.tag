@@ -1,7 +1,7 @@
 <page_groupe>
       <!--div class="row featurette"-->
      
-      <div class="container-fluid">  
+      <!--div class="container-fluid"-->  
         <div class="row">
         <div class="col-md-2" style="border: 0px solid red;"></div>
         <div class="col-md-5" style="border: 0px solid red;">

@@ -1,13 +1,13 @@
 <page_liste>
       
-      <div class="container-fluid">  
+      <!--div class="container-fluid"-->
+
         <div each={ item , index in this.liste } class="row">
           <div class="col-md-2" style="border: 0px solid red;"></div>
           <div class="col-md-3" style="border: 0px solid red;"><a href="#groupe/{ item._id }">{ item.name }</a></div>
           <div class="col-md-5" style="border: 0px solid red;">{ item.abstract }</div>
           <div class="col-md-2" style="border: 0px solid red;"></div>
         </div>
-      </div>
 
   <script>
 

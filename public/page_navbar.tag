@@ -15,14 +15,6 @@
                      <li>
                         <a href="#qui">Qui sommes-nous ?</a>
                     </li>
-                    
-                    <!--li>
-                        <a href="#">Public</a>
-                    </li>
-                    <li>
-                        <a href="#">Artistes</a>
-                    </li-->
-
                    
                 </ul>
 
@@ -34,16 +26,15 @@
                         <a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;</a>
                     </li>
                     <li>
-                        <a href="#"><span >Artistes</span>&nbsp;</a>
+                        <a href="#artiste"><span >Je suis un groupe</span></a>
                     </li>
                     <li>
-                        <a href="#"><span >connection</span>&nbsp;</a>
+                        <a href="#connecter"><span >Je me connecte</span></a>
                     </li>
                     <li>
-                        <a href="#"><span >S'enregister</span>&nbsp;</a>
+                        <a href="#enregistrer"><span >Je m'enregistre</span></a>
                     </li>
                 </ul>
-
             </div>
        </div>
     </nav>

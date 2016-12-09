@@ -1,7 +1,7 @@
 
   
   <head>
-  	
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,22 +27,20 @@
   </head>
   
   <body>
-  	<page_navbar></page_navbar>
+    <page_navbar></page_navbar>
     <div id="content" class="container-fluid">
       
-
-      
-
-
-
     </div>  
     <page_footer></page_footer>
+
+    <div id="search" >
+      <button type="button" class="close" >×</button>
+        <form>
+          <input type="search" value="" placeholder="tapez un mot clé ici s.v.p." />
+          <button type="submit" class="btn btn-primary">Recherche</button>
+        </form>
+      </div>
   </body>
-
-
- <!--script src="https://cdn.jsdelivr.net/riot/2.6/riot+compiler.min.js"></script>
- <script src="js/jquery.js"></script>
- <script src="js/bootstrap.js"></script-->
 
 <script src="https://code.jquery.com/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -51,50 +49,68 @@
 
 <script type="riot/tag" src="page_navbar.tag">        </script>
 <script type="riot/tag" src="annonces.tag">           </script>  
-<script type="riot/tag" src="bootstrap-carousel.tag"> </script>  	 
+<script type="riot/tag" src="bootstrap-carousel.tag"> </script>    
 <script type="riot/tag" src="page_content.tag">       </script>
 <script type="riot/tag" src="page_groupe.tag">        </script>
-<script type="riot/tag" src="page_liste.tag">        </script>
+<script type="riot/tag" src="page_liste.tag">         </script>
 <script type="riot/tag" src="page_qui.tag">           </script>
 <script type="riot/tag" src="page_footer.tag">        </script>
- 
+<script type="riot/tag" src="page_artiste.tag">       </script>
+<script type="riot/tag" src="page_connecter.tag">     </script>
+<script type="riot/tag" src="page_enregistrer.tag">   </script>
+
 <script>
+
     $( document ).ready(function() {
-    riot.compile(function() { // compilation nécessaire pour obtenir le tableau des tags (contenu) , ici uniquement pour le content.	
-    riot.mount("*"); 
-    // riot.mount("page_footer"); 
-  
-    // var contenu = riot.mount('div#content','page_content')[0];  
+      riot.compile(function() { // compilation nécessaire pour obtenir le tableau des tags (contenu) , ici uniquement pour le content.  
+      riot.mount("*");
+      var contenu = riot.mount("div#content","page_content");
+    }) // compile
 
-    var contenu = riot.mount("div#content","page_content");
-
-    riot.route.start(true);
+      riot.route.start(true);
     
-    riot.route("/",function() {
+      riot.route("/",function() {
           console.log("route->home");
           
           contenu = riot.mount("div#content","page_content")
           $('.carousel').carousel({
               interval: 3000
           })
-    })
+      })
+    
+      // route du menu.
 
-    riot.route("/qui",function(){ 
+      riot.route("/qui",function(){ 
           console.log("route->qui");     
           contenu = riot.mount("div#content","page_qui")
-          })
-    }) // compile
+      })
 
-    riot.route("/groupe/*",function(name){
+      riot.route("/artiste",function(){ 
+          console.log("route->artiste");     
+          contenu = riot.mount("div#content","page_artiste")
+      })
+
+      riot.route("/connecter",function(){ 
+          console.log("route->connecter");     
+          contenu = riot.mount("div#content","page_connecter")
+      })
+
+      riot.route("/enregistrer",function(){ 
+          console.log("route->enregistrer");     
+          contenu = riot.mount("div#content","page_enregistrer")
+      })
+
+      // autres routes.
+
+      riot.route("/groupe/*",function(name){
           console.log("route->groupe",name);
           contenu = riot.mount("div#content","page_groupe",{ "_id" : name });
-    })
+      })
 
-    riot.route("/liste/*",function(search){
+      riot.route("/liste/*",function(search){
           console.log("liste->groupe",search)
           contenu = riot.mount("div#content","page_liste",{ "cherche" : search });
-    })
-
+      })
 }) // ready
 </script>
 </html>
