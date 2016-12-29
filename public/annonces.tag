@@ -1,17 +1,18 @@
 <annonces>
 
-  <div each={ this.items } class="col-sm-4 col-lg-4 col-md-4">
+  <div each={ this.items } class="col-xs-4 col-sm-4 col-lg-4 col-md-4">
                 <div class="thumbnail">
                       <img src=images/{ flyer } alt="">
                       <div class="caption">
-                          <h4 class="pull-right"> { date } </h4>
-                          <h4><a href="#">{ title }</a></h4>
+                          <h6 class="pull-right"> { date } </h6>
+                          <h6><a href="#">{ title }</a></h6>
                                 <p>{ abstract }</p>
                             </div>                   
                 </div>
   </div>
 
   <script>
+  
   /*
    this.items = [
       {"id":0 , "title":"WEST FEST" , "flyer":"images/west.png"   , "abstract" : "WEST FEST", "date":"22-12-2015" } ,

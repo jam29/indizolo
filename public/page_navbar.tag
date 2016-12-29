@@ -1,4 +1,5 @@
 <page_navbar>
+   
    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -13,7 +14,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                      <li>
-                        <a href="#qui">Qui sommes-nous ?</a>
+                        <a href="#qui">À propos.</a>
                     </li>
                    
                 </ul>
@@ -26,13 +27,13 @@
                         <a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;</a>
                     </li>
                     <li>
-                        <a href="#artiste"><span >Je suis un groupe</span></a>
+                        <a href="#artiste"><span >Groupe</span></a>
                     </li>
                     <li>
-                        <a href="#connecter"><span >Je me connecte</span></a>
+                        <a href="#connecter"><span >Connect.</span></a>
                     </li>
                     <li>
-                        <a href="#enregistrer"><span >Je m'enregistre</span></a>
+                        <a href="#enregistrer"><span >Enregistr.</span></a>
                     </li>
                 </ul>
             </div>
