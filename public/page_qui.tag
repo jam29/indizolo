@@ -4,7 +4,7 @@
         <div class="col-sm-2"></div>
 		<div class="col-sm-8">
 			<p>
-			… IndiZolo est fait pour découvrir des groupes indépendants.
+			… IndiZolo est fait pour découvrir des groupes indépendants...
 			</p><p>
 			Ça peut s’apparenter à un marché de producteurs locaux sauf qu’il est sur internet et on y trouvera de la musique de tout style faite par des groupes de l’ouest (Bretagne et Loire Atlantique), qu’ils soient jeunes, confirmés ou même séparés.
 			</p><p>

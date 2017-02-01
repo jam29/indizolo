@@ -7,9 +7,9 @@
       <!-- FOOTER -->
       <footer>
         <p class="pull-right"><img src="images/logo80.png"></p>
-        <p>&copy; 2015,2016,2017 INDIZOLO.COM &middot; 
+        <p>&copy; 2017 INDIZOLO.COM &middot; 
           <a href="#ml">Mentions légales</a> &middot;
-           <a href="#cgv">CGV</a> &middot;
+           <!--a href="#cgv">CGV</a--> 
             <a href="#contact">contact</a> &middot;
         </p>
       </footer>

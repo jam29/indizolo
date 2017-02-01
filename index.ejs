@@ -28,9 +28,11 @@
   
   <body>
     <page_navbar></page_navbar>
+
     <div id="content" class="container-fluid">
       
     </div>  
+    
     <page_footer></page_footer>
 
     <div id="search" >
@@ -42,9 +44,10 @@
       </div>
   </body>
 
-<script src="https://code.jquery.com/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/riot/2.3/riot+compiler.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/riot/2.3/riot+compiler.js"></script>
+<script src="https://cdn.jsdelivr.net/superagent/0.18.0/superagent.min.js"></script>
 <!--script src="https://cdn.jsdelivr.net/riotgear/latest/rg.min.js"></script-->
 
 <script type="riot/tag" src="page_navbar.tag">        </script>
@@ -58,59 +61,73 @@
 <script type="riot/tag" src="page_artiste.tag">       </script>
 <script type="riot/tag" src="page_connecter.tag">     </script>
 <script type="riot/tag" src="page_enregistrer.tag">   </script>
-
+<script type="riot/tag" src="page_panier.tag">        </script>
+<script type="riot/tag" src="tags.tag">            </script>
 <script>
 
-    $( document ).ready(function() {
+//$(document).ready(function() {
+   
       riot.compile(function() { // compilation nécessaire pour obtenir le tableau des tags (contenu) , ici uniquement pour le content.  
-      riot.mount("*");
-      var contenu = riot.mount("div#content","page_content");
-    }) // compile
+        riot.mount("page_navbar");
+        riot.mount("page_panier");
+        riot.mount("page_footer");         
+      }) // compile
+
+    // dipsatcher
+      var SharedMixin = {
+          observable: riot.observable()
+      };
 
       riot.route.start(true);
     
       riot.route("/",function() {
-          console.log("route->home");
-          
-          contenu = riot.mount("div#content","page_content")
-          $('.carousel').carousel({
-              interval: 3000
-          })
+          console.log("route->home");    
+          riot.mount("div#content","page_content")
       })
     
       // route du menu.
 
       riot.route("/qui",function(){ 
-          console.log("route->qui");     
-          contenu = riot.mount("div#content","page_qui")
+          console.log("route->qui");  
+         
+          riot.mount("div#content","page_qui")
       })
 
       riot.route("/artiste",function(){ 
           console.log("route->artiste");     
-          contenu = riot.mount("div#content","page_artiste")
+          riot.mount("div#content","page_artiste")
       })
 
-      riot.route("/connecter",function(){ 
+      riot.route("/connecter",function() { 
           console.log("route->connecter");     
-          contenu = riot.mount("div#content","page_connecter")
+          riot.mount("div#content","page_connecter")
       })
 
       riot.route("/enregistrer",function(){ 
           console.log("route->enregistrer");     
-          contenu = riot.mount("div#content","page_enregistrer")
+          riot.mount("div#content","page_enregistrer")
       })
 
       // autres routes.
 
       riot.route("/groupe/*",function(name){
           console.log("route->groupe",name);
-          contenu = riot.mount("div#content","page_groupe",{ "_id" : name });
+          riot.mount("div#content","page_groupe",{ "_id" : name });
       })
 
       riot.route("/liste/*",function(search){
           console.log("liste->groupe",search)
-          contenu = riot.mount("div#content","page_liste",{ "cherche" : search });
+          riot.mount("div#content","page_liste",{ "cherche" : search });
       })
-}) // ready
+
+      riot.route("/panier",function(){
+        console.log("route->panier");
+        riot.mount("div#content","page_panier")
+      })
+     
+    //});    
+
+
+
 </script>
 </html>

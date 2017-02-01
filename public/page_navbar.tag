@@ -11,6 +11,7 @@
                 </button>
                 <a class="navbar-brand" href="#"><img src="images/logo80.png"></a>
             </div>
+
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                      <li>
@@ -23,18 +24,18 @@
                      <li>
                         <a href="#search"><span id="coucou" class="glyphicon glyphicon-search"></span>&nbsp;</a>
                     </li>
-                     <li>
-                        <a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;</a>
-                    </li>
+                     <!--li>
+                        <a href="#panier"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;</a>
+                    </li-->
                     <li>
-                        <a href="#artiste"><span >Groupe</span></a>
+                        <a href="#artiste"><span >Incription groupe</span></a>
                     </li>
-                    <li>
+                    <!--li>
                         <a href="#connecter"><span >Connect.</span></a>
                     </li>
                     <li>
                         <a href="#enregistrer"><span >Enregistr.</span></a>
-                    </li>
+                    </li-->
                 </ul>
             </div>
        </div>
@@ -44,12 +45,16 @@
 
     $(function () {
 
+        $(document).on('click',function(){
+            $('.navbar-collapse').removeClass('in')
+        });
+
         console.log("script->page_navbar");
 
         // $('a[href="#search"]').on('click', function(event) {
         $(document).on('click','a[href="#search"]', function(event) {
             event.preventDefault();
-            // alert('coucou');
+            
             $('#search').addClass('open');
             $('#search > form > input[type="search"]').focus();
 
@@ -65,6 +70,7 @@
         $(document).on('click keyup','#search, #search .close', function(event) {
          if (event.target == this || event.target.className == 'close' || event.keyCode == 27) {
             $('#search').removeClass('open');
+
          }
         });
     
