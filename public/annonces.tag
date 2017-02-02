@@ -25,7 +25,7 @@
 
    var that = this ;
   
-   var promise = $.getJSON("http://localhost:8080/banners/get") 
+   var promise = $.getJSON("/banners/get") 
 
    promise.done(function(data) {
         console.log('data banners',data)

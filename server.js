@@ -1,5 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var db = mongoose.connect('mongodb://localhost/indizolo');
 
 const doctype = '<!doctype html>';
 
@@ -18,6 +20,35 @@ app.set('view engine', 'ejs');
 app.get('/', function(req,res){
 	res.render("index");
 })
+
+	require('./server/models.js');
+  var bands     =   require('./server/band_controller');
+  var banners   =   require('./server/banner_controller');
+  var carousel  =   require('./server/carousel_controller');
+  
+ //app.get('/', ensureAuthenticated ,function(req, res) { res.redirect('/index'); }); 
+ //app.get('/index', ensureAuthenticated ,function(req, res) { 
+ // app.get('/', function(req, res) {res.render('index'); });   
+
+  app.get  ('/bands/get' , bands.getBands ) ;  
+  app.get  ('/bands/getOne/:id' , bands.getOne ) ;
+  // app.post ('/bands/post'   ,   bands.createBand  ) ; 
+  // app.post ('/bands/put'    ,         bands.updateBand  ) ; 
+  // app.post ('/bands/delete' ,         bands.deleteBand  ) ; 
+  app.get  ('/bands/liste/:searchText',  bands.searchBands ) ;
+
+  app.get('/banners/get'   ,  banners.getBanners ) ;
+  //app.post('/banners/put'  ,  banners.updateBanners ) ;  
+
+  app.get('/carousel/get'  ,   carousel.getCarousel ) ;
+  // app.post('/carousel/put' ,   carousel.updateCarousel ) ;  
+  // app.post('/carousel/post' ,  carousel.addCarousel ) ; 
+  // app.post ('/carousel/delete' ,  , carousel.deleteCarousel  ) ;  
+  // app.post ('/carousel/delete' ,  , carousel.deleteCarousel ) ;  
+
+  app.get('*', function(req, res){
+  res.render("404");
+});
 
 
 app.listen(8000)

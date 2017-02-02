@@ -66,7 +66,7 @@
 console.log ('GROUPE:',this.opts._id);
 
 var that=this ;
-url =  "http://localhost:8080/bands/getOne/"+that.opts._id
+url =  "/bands/getOne/"+that.opts._id
 console.log(url)
 var promise = $.getJSON(url) ;
 

@@ -14,7 +14,7 @@
   console.log ('Cherche dans groupe : ',this.opts.cherche);
 
   var that=this ;
-  url =  "http://localhost:8080/bands/liste/"+that.opts.cherche
+  url =  "/bands/liste/"+that.opts.cherche
 
   var promise = $.getJSON(url) ;
 

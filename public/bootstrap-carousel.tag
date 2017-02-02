@@ -37,7 +37,7 @@
     
     this.on("before-mount", function() { 
       //alert("before");
-      var promise = $.getJSON("http://localhost:8080/carousel/get") 
+      var promise = $.getJSON("/carousel/get") 
 
       promise.done(function(data) {
           console.log("promise done data carousel ->",data)

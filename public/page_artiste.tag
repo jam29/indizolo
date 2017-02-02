@@ -85,7 +85,7 @@
 var request = window.superagent;
   this.addGroup = function(e) {
   		 e.preventDefault();
-  		 request.post('http://localhost:8080/bands/post')
+  		 request.post('/bands/post')
     			.send( 	  { name:     e.target.group_name, 
                             city:     e.target.city, 
                             abstract: e.target.abstract,

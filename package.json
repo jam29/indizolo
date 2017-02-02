@@ -7,6 +7,8 @@
     "body-parser": "^1.15.2",
     "ejs": "^2.5.2",
     "express": "^4.14.0",
+    "mongodb": "^2.2.22",
+    "mongoose": "^4.8.1",
     "riot": "^2.6.4",
     "riotcontrol": "0.0.3"
   },
