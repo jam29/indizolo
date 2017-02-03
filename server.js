@@ -1,8 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-// var db = mongoose.connect('mongodb://localhost/indizolo');
- var db = mongoose.connect('mongodb://u8ldqkwpnavntsq:8IMMDQTaqQBUxgxs0l8h@bpksbgdhgo0jj10-mongodb.services.clever-cloud.com:27017/bpksbgdhgo0jj10');
+//var db = mongoose.connect('mongodb://localhost/indizolo');
+ var db = mongoose.connect('mongodb://umv26kv2288lzv7:qAif8N746UNeUm4s9Cx7@b1eflgsgur8yey1-mongodb.services.clever-cloud.com:27017/b1eflgsgur8yey1');
 
 
 const doctype = '<!doctype html>';
@@ -52,6 +52,6 @@ app.get('/', function(req,res){
 });
 
 
-app.listen(8000)
+app.listen(8080)
 
-console.log("indizolo server listening on port 8000");
+console.log("indizolo server listening on port 8080");
