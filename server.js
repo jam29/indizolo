@@ -1,7 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var db = mongoose.connect('mongodb://localhost/indizolo');
+// var db = mongoose.connect('mongodb://localhost/indizolo');
+ var db = mongoose.connect('mongodb://u8ldqkwpnavntsq:8IMMDQTaqQBUxgxs0l8h@bpksbgdhgo0jj10-mongodb.services.clever-cloud.com:27017/bpksbgdhgo0jj10');
+
 
 const doctype = '<!doctype html>';
 
