@@ -21,13 +21,13 @@ app.get('/', function(req,res){
 	res.render("index");
 })
 
-	require('./server/models.js');
+  require('./server/models.js');
   var bands     =   require('./server/band_controller');
   var banners   =   require('./server/banner_controller');
   var carousel  =   require('./server/carousel_controller');
   
- //app.get('/', ensureAuthenticated ,function(req, res) { res.redirect('/index'); }); 
- //app.get('/index', ensureAuthenticated ,function(req, res) { 
+ // app.get('/', ensureAuthenticated ,function(req, res) { res.redirect('/index'); }); 
+ // app.get('/index', ensureAuthenticated ,function(req, res) { 
  // app.get('/', function(req, res) {res.render('index'); });   
 
   app.get  ('/bands/get' , bands.getBands ) ;  
@@ -44,8 +44,7 @@ app.get('/', function(req,res){
   // app.post('/carousel/put' ,   carousel.updateCarousel ) ;  
   // app.post('/carousel/post' ,  carousel.addCarousel ) ; 
   // app.post ('/carousel/delete' ,  , carousel.deleteCarousel  ) ;  
-  // app.post ('/carousel/delete' ,  , carousel.deleteCarousel ) ;  
-
+  
   app.get('*', function(req, res){
   res.render("404");
 });

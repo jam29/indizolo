@@ -25,8 +25,9 @@ this.afficheTag = [];
 var that=this;
 
 this.addTag = function (e){
+	console.log(e)
 	e.preventDefault(); 
-	if (  e.key == ',' ) { 
+	if (  e.keyCode == 188 ) { 
 		var tag = e.target.value.slice(0,e.target.value.length-1);
 		if (tag.length > 0 ) {that.afficheTag.push({tag:tag});}
 		riot.update() ;

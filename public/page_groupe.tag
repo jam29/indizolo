@@ -34,9 +34,9 @@
         </div>
           <div class="col-md-5" style="border: 0px solid red; padding:20px">    
             <p>{ album.title }  - { album.type }</p> 
-            <p>Date de sortie : { album.release_date }</p>
+            <!--p>Date de sortie : { album.release_date }</p-->
             <!---p>{ album.price } €</p-->
-            <p><button type="button" class="btn btn-primary">ACHETER</button></p> 
+            <!--p><button type="button" class="btn btn-primary">ACHETER</button></p--> 
           </div>
       </div>
       

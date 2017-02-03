@@ -17,21 +17,23 @@ exports.getBands = function(req, res) {
 
 }
 
+// 
+//  Todo in mongodb: 
+//  db.bands.createIndex({ "$**":"text"},{"weights":{name:5,style:4,city:3,abstract:2}})
+//
 exports.searchBands = function(req, res) {
   console.log("server/band_controller.js: searchBands")
-  console.log("REQ.PARAMS",req.params);
-    Band.find({ $text: { $search: req.params.searchText }})
+    Band.find({ $text: { $search: req.params.searchText }},
+                {score: {$meta: "textScore" }})
+    .sort( { score: { $meta: "textScore" } })
     .exec(function(err, bands) {
-      console.log("Search ",bands)
     if (!bands){
       res.json(404, {msg: 'band(s) Not Found.'});
     } else {
       res.json(bands);
     }
   });
-
 }
-
 
 
 exports.getOne = function(req, res) {
