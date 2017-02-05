@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 //var db = mongoose.connect('mongodb://localhost/indizolo');
  var db = mongoose.connect('mongodb://umv26kv2288lzv7:qAif8N746UNeUm4s9Cx7@b1eflgsgur8yey1-mongodb.services.clever-cloud.com:27017/b1eflgsgur8yey1');
 
