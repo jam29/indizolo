@@ -55,4 +55,3 @@ app.get('/', function(req,res){
 
 app.listen(8080)
 
-console.log("indizolo server listening on port 8080");

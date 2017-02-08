@@ -13,7 +13,8 @@
               <img class="slide-image" src={ item.image } ></img>
               <div class="caption" style="text-align:center">
                   <h5>{ item.title }</h5>
-                  <h5><a class="btn btn-xs btn-primary" href="#groupe/{ item.url }">Plus...</a></h5>
+                  <!--h5><a class="btn btn-xs btn-primary" href="#groupe/{ item.url }">Plus...</a></h5-->
+                    <h5><a class="btn btn-xs btn-primary" href="{ item.url }">Plus...</a></h5>
               </div>
           </div>
       </div>
