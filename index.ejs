@@ -73,7 +73,8 @@
       riot.compile(function() { // compilation nécessaire pour obtenir le tableau des tags (contenu) , ici uniquement pour le content.  
         riot.mount("page_navbar");
         riot.mount("page_panier");
-        riot.mount("page_footer");         
+        riot.mount("page_footer");  
+
       }) // compile
 
     // dipsatcher
@@ -115,7 +116,9 @@
 
       riot.route("/groupe/*",function(name){
           console.log("route->groupe",name);
-          riot.mount("div#content","page_groupe",{ "_id" : name });
+          riot.compile(function() {
+           riot.mount("div#content","page_groupe",{ "_id" : name });
+        })
       })
 
       riot.route("/liste/*",function(search){

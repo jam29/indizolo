@@ -4,7 +4,7 @@
 
         <div each={ item , index in this.liste } class="row">
          
-          <div class="col-md-2" style="border: 0px solid red;"><a href="#groupe/{ item._id }">{ item.name }</a></div>
+          <div class="col-md-2" style="border: 0px solid red;"><a href="#groupe/{ item._id }"><h5>{ item.name }</h5></a><h6>({ item.city })</h6></div>
            <div class="col-md-2" style="border: 0px solid red;"><img class="img-responsive img-rounded" style="max-width:120px" src={item.cover}/></div>
           <div class="col-md-6" style="border: 0px solid red;">{ item.abstract }</div>
           <div class="col-md-2" style="border: 0px solid red;">
@@ -13,6 +13,8 @@
 
           </div>
         </div>
+
+  
 
   <script>
 
