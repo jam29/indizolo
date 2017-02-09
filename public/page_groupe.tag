@@ -3,7 +3,7 @@
         <div class="row">
          <!--div class="col-md-1" style="border: 0px solid red;"></div-->
           <div class="col-md-6 col-sm-6" style="border: 0px solid red;">
-          <h2 class="featurette-heading" style="border: 0px solid red;">{ this.band.name }</h2>
+          <h2 class="featurette-heading" style="border: 0px solid red;">{ this.band.name }</h2><h4>{ this.band.city }</h4>
           <h6><span each={ tag in this.band.style } class="label label-danger" style="margin-right:5px;margin-top:5px" }>{ tag }</span></h6>
           <p style="white-space: pre-line;">{ this.band.abstract }</p>
           <p class="lead">Membres :</p>
