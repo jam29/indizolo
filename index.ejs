@@ -48,6 +48,7 @@
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/riot/2.3/riot+compiler.js"></script>
 <script src="https://cdn.jsdelivr.net/superagent/0.18.0/superagent.min.js"></script>
+<script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
 <script src="https://cdn.jsdelivr.net/riotgear/latest/rg.min.js"></script>
 
 <script type="riot/tag" src="page_navbar.tag">        </script>
@@ -114,11 +115,11 @@
 
       // autres routes.
 
-      riot.route("/groupe/*",function(name){
-          console.log("route->groupe",name);
-          riot.compile(function() {
-           riot.mount("div#content","page_groupe",{ "_id" : name });
-        })
+      riot.route("/groupe/*",function(lid){
+          console.log("route->groupe",lid);
+          
+           riot.mount("div#content","page_groupe",{ "_id" : lid });
+       
       })
 
       riot.route("/liste/*",function(search){

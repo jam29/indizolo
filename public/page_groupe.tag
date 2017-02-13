@@ -7,12 +7,13 @@
           <h6><span each={ tag in this.band.style } class="label label-danger" style="margin-right:5px;margin-top:5px" }>{ tag }</span></h6>
           <p style="white-space: pre-line;">{ this.band.abstract }</p>
           <p class="lead">Membres :</p>
-          <p> 
-            <span each={ member in this.band.members} > { member.name }
-                                                  &nbsp;{ member.instrument} / </span>
+          <p each={ member in this.band.members} > 
+              <span>{ member.name } : { member.instrument} </span>
+              <small show={ member.autres_groupes.length > 0 }>,membre de </small>
+              <small each={ other in member.autres_groupes }><em><a href="/#groupe/{ other.id }">- { other.name }</a></em></small>
           </p>
           <p class="lead"><a href="{ this.band.google }">{ this.band.google }</a></p>
-          <p class="lead" show={this.band.contact} >Contact: { this.band.contact }</p>
+          <p class="lead" show={ this.band.contact } >Contact: { this.band.contact }</p>
 
         </div>
 
@@ -74,9 +75,20 @@ console.log(url)
 var promise = $.getJSON(url) ;
 
 promise.done(function(aBand) {
-         console.log("BAND:",aBand)
-         that.band = aBand;
-         riot.update();
+        // console.log("BAND:",aBand)
+        that.band = aBand ;
+        _.map (that.band.members,function(m,index_m) {
+                  _.map(m.autres_groupes, function(id_ag,index_ag) {
+                        var m_url = "/bands/getOne/"+id_ag ;
+                        $.getJSON(m_url,function(ag){
+                          console.log(index_m,index_ag,ag.name)
+                          that.band.members[index_m].autres_groupes[index_ag] = { "id":ag._id, "name":ag.name }
+                          riot.update() ;
+                        });
+
+                  })
+        })   
+        riot.update() ;
 });
 
      
