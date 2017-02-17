@@ -48,7 +48,8 @@
                 <h5>{album.title}</h5>
                 <p>{album.release_date}</p>
             
-                <p show="album.store"><a href="{ album.store  }" class="btn btn-sm btn-primary" role="button">lien produit en magasin</a></p>
+                <p show={ album.store.length > 0 }><a href="{ album.store  }" class="btn btn-sm btn-primary" >lien produit en magasin</a></p>
+                <p hide ={ album.store.length > 0 } style="text-align:center">Lien vers votre boutique ?<br/><a href=# class="btn btn-sm btn-primary" role="button">Abonnez-vous</a></p>
               </div>
             </div>
         </div>
@@ -97,7 +98,7 @@ promise.done(function(aBand) {
 
                   })
         })   
-       // riot.update() ;
+  riot.update() ;
 });
 
      
