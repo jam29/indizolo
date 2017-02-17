@@ -22,7 +22,8 @@ var AlbumSchema = new Schema({
   	release_date: Date,
   	price: Number,
   	cover: String,
-  	tracks: [TracksSchema]
+  	tracks: [TracksSchema],
+    store: String
 });
 
 var BandSchema = new Schema({

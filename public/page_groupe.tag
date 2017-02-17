@@ -10,7 +10,7 @@
           <p each={ member in this.band.members} > 
               <span>{ member.name } : { member.instrument} </span>
               <small show={ member.autres_groupes.length > 0 }>,membre de </small>
-              <small each={ other in member.autres_groupes }><em><a href="/#groupe/{ other.id }">- { other.name }</a></em></small>
+              <small each={ other in member.autres_groupes }><em><a href="/#groupe/{ other.id }"> - { other.name }</a></em></small>
           </p>
           <p class="lead"><a href="{ this.band.google }">{ this.band.google }</a></p>
           <p class="lead" show={ this.band.contact } >Contact: { this.band.contact }</p>
@@ -38,30 +38,33 @@
       <hr class="featurette-divider">
       <h2 class="featurette-heading" style="border: 0px solid red;">DISCOGRAPHIE</h2>
 
-      <div id="albums"  class="row">
-        <div each={ album, index_album in this.band.albums } class="col-md-3" >
-          <div class="thumbnail">
-            <img class="grouptag" src={ album.cover } />
-            <div class="caption">
-            <h5>{album.title}</h5>
-            <p>{album.release_date}</p>
+      <div  class="row">
+        <div class="col-md-1"></div>
+        <div id="albums" class="col-md-10">
+          <div each={ album, index_album in this.band.albums } class="item" >
+            <div class="thumbnail">
+              <img class="grouptag" src={ album.cover } />
+              <div class="caption">
+                <h5>{album.title}</h5>
+                <p>{album.release_date}</p>
             
-            <p><a href="#" class="btn btn-sm btn-primary" role="button">lien magasin</a></p>
-          </div>
+                <p show="album.store"><a href="{ album.store  }" class="btn btn-sm btn-primary" role="button">lien produit en magasin</a></p>
+              </div>
+            </div>
         </div>
+      </div>
+      <div class="col-md-1"></div>
       </div>
 
     
-      
-      <!--hr class="featurette-divider">
-      <h2 class="featurette-heading" style="border: 0px solid red;">MERCHANDISING</h2-->    
-      
+      <hr class="featurette-divider">
+      <h2 class="featurette-heading" style="border: 0px solid red;">MERCH</h2>
       
 
 <style>
     img.grouptag {
-      width: 200px;
-      height: 200px;
+      width: 180px;
+      height: 180px;
     }
 </style>
 
@@ -84,11 +87,17 @@ promise.done(function(aBand) {
                           console.log(index_m,index_ag,ag.name)
                           that.band.members[index_m].autres_groupes[index_ag] = { "id":ag._id, "name":ag.name }
                           riot.update() ;
+                          $('#albums').masonry({
+                            itemSelector: '.item',
+                            
+                            columnWidth: 10
+                          });
+
                         });
 
                   })
         })   
-        riot.update() ;
+       // riot.update() ;
 });
 
      
