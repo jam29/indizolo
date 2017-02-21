@@ -49,7 +49,7 @@
             <div class="thumbnail">
               <img class="grouptag" src={ album.cover } />
               <div class="caption">
-                <h5>{album.title}</h5>
+                <h5>{album.title} / {album.type}</h5>
                 <p>{ moment(album.release_date ).format("MMMM YYYY") }</p>
             
                 <p show = { album.store.length > 0 }><a href="{ album.store  }" class="btn btn-sm btn-primary" >lien produit en magasin</a></p>
