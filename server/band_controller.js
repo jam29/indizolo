@@ -49,6 +49,19 @@ exports.getOne = function(req, res) {
   });
 }
 
+
+exports.getName = function(req, res) {
+  console.log("server/band_controller.js: getName",req.params)   
+    Band.find({ name:req.params.name })
+    .exec(function(err, band) {
+    if (!band){
+      res.json(404, {msg: 'band(s) Not Found.'});
+    } else {
+      res.json(band);
+    }
+  });
+}
+
 exports.createBand = function(req,res) {
   // console.log(req.body);
     var band = new Band({   

@@ -11,22 +11,22 @@
 
 				<div class="form-group">
 					<label class="control-label" for="inputTitle">Nom du groupe</label>
-					<input id="group_name" type="text" class="form-control"  name="group_name" onBlur={ validate } required onKeyup={ handler }  } />
+					<input id="group_name" type="text" class="form-control"  placeholder="obligatoire..." name="group_name" onBlur={ validate } required onKeyup={ handler }  } />
 				</div>
 
 				<!--div  show={ this.gn } class="form-group"-->
 				<div show={ this.gn } class="form-group">
 					<label class="control-label"  for="inputTitle">Ville principale</label>
-					<input type="text" class="form-control"  onBlur={ validate } required name="city"/>
+					<input type="text" class="form-control" name="city"/>
 
 				<div class="form-group">
 					<label class="control-label"  for="inputTitle">Présentation</label>
-					<textarea type="text" class="form-control"   onBlur={ validate } required name="abstract"/></textarea>
+					<textarea type="text" class="form-control"  placeholder="Ce groupe n'a pas (encore) de page IndiZolo."  name="abstract"/></textarea>
 				</div>
 
 				<div class="form-group">
 					<label class="control-label"  for="inputTitle">email</label> 
-					<input type="text" class="form-control"  required onBlur={ validate } name="email"/>
+					<input type="email" class="form-control" required onBlur={ validate }  name="email"/>
 				</div>
 
 				<div class="form-group">
@@ -46,8 +46,23 @@
 				
 				<label class="control-label" for="inputTitle">lien video</label> 
 				<input type="text" class="form-control"  /-->
-				 
-				 	<button type="submit" class="btn btn-primary">ENREGISTRER</button>
+				
+				 <div class="form-group">
+				 	<button type="submit" class="btn btn-primary">Ajouter un membre</button>
+				 </div>
+
+				  <div class="form-group">
+				 	<button type="submit" class="btn btn-primary">Ajouter un Album</button>
+				 </div>
+
+				  <div class="form-group">
+				 	<button type="submit" class="btn btn-primary">Ajouter un goodies</button>
+				 </div>
+				
+				 <div class="form-group">
+				 	<button type="submit" class="btn btn-primary">Enregistrer</button>
+				 </div>
+
 				 </form>
 				
  				
@@ -64,15 +79,18 @@
  
 
 
- <script src="https://cdn.jsdelivr.net/superagent/0.18.0/superagent.min.js"></script>
+
  <script>
   
   this.on("mount",function() {
 	$("#group_name").focus();
   })
 
+ //var request = window.superagent ;
+
 
  this.mixin(SharedMixin);
+
  var afficheTag = [];
  this.observable.on('tagAdded',function(quoi) { 
  	afficheTag = quoi ;
@@ -89,13 +107,26 @@
  		{ that.gn = false ; }
  }
 
+  
+
  this.validate = function(e) {
- 	console.log(e.target.value.length);
- 				if (e.target.required && (e.target.value.length == 0)) { console.log("required") ; e.target.focus();}
+          var promise = $.getJSON('/bands/getName/'+e.target.value);
+          promise.done(function(data) {
+              if ((e.target.name === "group_name") && ( data.length > 0 )) { 
+ 	 			alert("existe") ; 
+ 	 			e.target.focus() ; 
+ 	 			e.target.value="" ; 
+ 	 	  		}
+              
+          });
+    
+          promise.fail(function(err) {
+                  $('body').append('<p>Oh no, something went wrong!</p>', err);
+          });
  }
 
-
-  var request = window.superagent ;
+ 
+  
   this.addGroup = function(e) {
   		 e.preventDefault();
   		 request.post('/bands/post')
@@ -115,30 +146,6 @@
                             video:    "" } )
     			.end(function(err,res){if(err){console.log('ERR')}})
    }
-
-  var tags = riot.mount('rg-toasts', {
-  toasts: {
-    	position: 'bottomright|bottomleft|topleft|topright',
-    	toasts: [{
-      		type: 'primary',
-      		text: 'Made you look!',
-      		sticky: true // Turn off timeout
-    	}, {
-      		type: 'secondary',
-      		text: 'Careful now...'
-    	}, {
-      		type: 'success',
-      		text: 'You did it!'
-    	}, {
-      		type: 'error',
-      		text: 'Oops!',
-      		timeout: 4000 // Default to 6000 if not set
-    	}]
-  		}
-	})
-
-	/*tags[0].on('close', function (toast) {  })
-       .on('select', function (toast) {  })*/
 
  </script>
 

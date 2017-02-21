@@ -25,9 +25,9 @@ app.get('/', function(req,res){
 })
 
   require('./server/models.js');
-  var bands     =   require('./server/band_controller');
-  var banners   =   require('./server/banner_controller');
-  var carousel  =   require('./server/carousel_controller');
+  var bands     =   require('./server/band_controller') ;
+  var banners   =   require('./server/banner_controller') ;
+  var carousel  =   require('./server/carousel_controller') ;
   
  // app.get('/', ensureAuthenticated ,function(req, res) { res.redirect('/index'); }); 
  // app.get('/index', ensureAuthenticated ,function(req, res) { 
@@ -35,6 +35,7 @@ app.get('/', function(req,res){
 
   app.get  ('/bands/get' , bands.getBands ) ;  
   app.get  ('/bands/getOne/:id' , bands.getOne ) ;
+  app.get  ('/bands/getName/:name' , bands.getName) ;
   // app.post ('/bands/post'   ,   bands.createBand  ) ; 
   // app.post ('/bands/put'    ,         bands.updateBand  ) ; 
   // app.post ('/bands/delete' ,         bands.deleteBand  ) ; 

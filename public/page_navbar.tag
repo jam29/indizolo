@@ -28,7 +28,8 @@
                         <a href="#panier"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;</a>
                     </li-->
                     <li>
-                        <a href="https://indizolo.wordpress.com/inscription-des-groupes/"><span >Inscription groupe</span></a>
+                        <a href="https://indizolo.wordpress.com/inscription-des-groupes/"><span>Inscription groupe</span></a>
+                        <!--a href="#artiste"><span >Inscription groupe</span></a-->
                     </li>
                     <!--li>
                         <a href="#connecter"><span >Connect.</span></a>

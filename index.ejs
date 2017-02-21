@@ -1,7 +1,4 @@
-
-  
-  <head>
-    
+  <head>    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,6 +48,10 @@
 <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
 <!--script src="https://cdn.jsdelivr.net/riotgear/latest/rg.min.js"></script-->
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/superagent/0.18.0/superagent.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment-with-locales.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/locale/fr.js"></script>
+
 
 <script type="riot/tag" src="page_navbar.tag">        </script>
 <script type="riot/tag" src="annonces.tag">           </script>  
@@ -71,6 +72,9 @@
 <script>
 
 //$(document).ready(function() {
+   moment().locale('FR');
+   
+
    
       riot.compile(function() { // compilation nécessaire pour obtenir le tableau des tags (contenu) , ici uniquement pour le content.  
         riot.mount("page_navbar");
@@ -79,10 +83,12 @@
 
       }) // compile
 
-    // dipsatcher
+
+     var request = window.superagent ;
+
       var SharedMixin = {
-          observable: riot.observable()
-      };
+          observable: riot.observable() ,
+      }; // end sharedMixin
 
       riot.route.start(true);
     
