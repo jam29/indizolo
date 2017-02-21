@@ -13,10 +13,11 @@
               <small each={ other in member.autres_groupes }><em><a href="/#groupe/{ other.id }"> - { other.name }</a></em></small>
           </p>
           <ul class="list-inline">
-              <li show={ this.band.google }  >  <a href="{ this.band.google }">{ this.band.google }</a></li>
-              <li show={ this.band.facebook } > <a href="{ this.band.facebook }"><img src="images/th-3.jpg" width=30></a></li>
-              <li show={ this.band.twitter }  > <a href="{ this.band.twitter }"><img src="images/twitter-bird.png" width=30></a></li>
-              <li show={ this.band.contact }>Contact: { this.band.contact }</li>
+              <li show={ this.band.weblink }  >  <a target="_blank" href="{ this.band.weblink }">{ this.band.weblink }</a></li>
+              <li show={ this.band.facebook } > <a target="_blank" href="{ this.band.facebook }"><img src="images/th-3.jpg" width=30></a></li>
+              <li show={ this.band.twitter }  > <a target="_blank" href="{ this.band.twitter }"><img src="images/twitter-bird.png" width=30></a></li>
+               <li show={ this.band.google }  > <a target="_blank" href="{ this.band.google }"><img src="images/gplus.jpg" width=30></a></li>
+              <li show={ this.band.contact }> Contact: { this.band.contact }</li>
               </ul>
 
         </div>
@@ -52,7 +53,7 @@
                 <h5>{album.title} / {album.type}</h5>
                 <p>{ moment(album.release_date ).format("MMMM YYYY") }</p>
             
-                <p show = { album.store.length > 0 }><a href="{ album.store  }" class="btn btn-sm btn-primary" >lien produit en magasin</a></p>
+                <p show = { album.store.length > 0 }><a target="_blank" href="{ album.store  }" class="btn btn-sm btn-primary" >lien produit en magasin</a></p>
                 <p hide = { album.store.length > 0 } <button class="btn btn-sm btn-primary disabled" >Lien produit en magasin</button></p>
               
               </div>
